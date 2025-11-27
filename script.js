@@ -5,30 +5,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2. Add submit event listener
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // prevent form from submitting
+        event.preventDefault(); // prevent default form submission
 
-        // 3. Retrieve and trim user inputs
+        // 3. Retrieve and trim inputs
         const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
-        // 4. Validation setup
+        // 4. Validation variables
         let isValid = true;
         let messages = [];
 
-        // --- Username Validation ---
+        // Username validation
         if (username.length < 3) {
             isValid = false;
             messages.push("Username must be at least 3 characters long.");
         }
 
-        // --- Email Validation ---
+        // Email validation
         if (!email.includes("@") || !email.includes(".")) {
             isValid = false;
             messages.push("Please enter a valid email address.");
         }
 
-        // --- Password Validation ---
+        // Password validation
         if (password.length < 8) {
             isValid = false;
             messages.push("Password must be at least 8 characters long.");
@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745"; // green text
-            feedbackDiv.style.backgroundColor = "#d4edda"; // light green background
+            feedbackDiv.style.color = "#28a745"; // green
+            feedbackDiv.style.backgroundColor = "#d4edda";
         } else {
             feedbackDiv.innerHTML = messages.join("<br>");
-            feedbackDiv.style.color = "#d8000c";
-            feedbackDiv.style.backgroundColor = "#ffbaba"; // light red background
+            feedbackDiv.style.color = "#dc3545"; // ❗ your required color
+            feedbackDiv.style.backgroundColor = "#ffbaba";
         }
     });
 });
